@@ -10,9 +10,14 @@ request({ url, json: true }, (error, { body } = {}) => {
         // console.log(response.body.error.info)
         callback('unable to find loction', undefined)
     } else {
-        // console.log(response.body.current);
         const data = body.current;
-        callback(undefined, data.weather_descriptions[0] + '. It is currently ' + data.temperature + ' degress out. It feels like ' + data.feelslike + ' degress out.')
+        console.log(body.current);
+        callback(
+            undefined,
+            data.weather_descriptions[0] + '. It is currently ' + data.temperature +
+            ' degress out. It feels like ' + data.feelslike + ' degress out. Humidity is: ' +
+            data.humidity + '%. Cloud cover is: ' + data.cloudcover + '%'
+        )
     }
 })
 }
