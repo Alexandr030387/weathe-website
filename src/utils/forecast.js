@@ -11,7 +11,6 @@ request({ url, json: true }, (error, { body } = {}) => {
         callback('unable to find loction', undefined)
     } else {
         const data = body.current;
-        console.log(body.current);
         callback(
             undefined,
             data.weather_descriptions[0] + '. It is currently ' + data.temperature +
